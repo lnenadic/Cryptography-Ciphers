@@ -5,10 +5,11 @@ body {
     background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
   }
   
-  .root {
+.root {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 15px;
   }
 
 h1 {

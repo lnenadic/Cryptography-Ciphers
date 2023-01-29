@@ -1,7 +1,8 @@
-import { cesar } from "./cesar.js";
-import { railfence, railfenceDecode } from "./railfence.js";
+import { phonetic } from "./phonetic.js";
+import { encode, decode } from "./railfence.js";
 import { encrypt, decrypt } from "./vigniere.js";
 import { rot13 } from "./root.js";
+import { cesar } from "./cesar.js";
 
 const plainTextField = $("#plainText");
 const chiperType = $("#typeChipers");
@@ -19,11 +20,11 @@ button.on("click", function () {
   let output = "";
   if (type == "encrypt") {
     switch (algorithm) {
-      case "cesar":
-        output = cesar(input, Number(keyField.val()));
+      case "phonetic":
+        output = phonetic(input, Number(keyField.val()));
         break;
       case "railfence":
-        output = railfence(input, Number(keyField.val()));
+        output = encode(input, Number(keyField.val()));
         break;
       case "vigniere":
         output = encrypt(input, Number(keyField.val()));
@@ -31,20 +32,26 @@ button.on("click", function () {
       case "root":
         output = rot13(input, Number(keyField.val()));
         break;
+      case "caesar":
+        output = cesar(input, Number(keyField.val()));
+        break;
     }
   } else {
     switch (algorithm) {
-      case "cesar":
-        // TODO find decrypt for cesar
+      case "phonetic":
+        // TODO
         break;
       case "railfence":
-        output = railfenceDecode(input, Number(keyField.val()));
+        output = decode(input, Number(keyField.val()));
         break;
       case "vigniere":
         output = decrypt(input, Number(keyField.val()));
         break;
       case "root":
         output = rot13(input, Number(keyField.val()));
+        break;
+      case "caesar":
+        // TODO
         break;
     }
   }

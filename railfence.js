@@ -1,9 +1,10 @@
-export const railfence = (msg, rails) =>
-  fence(msg.length, rails)
+export function encode(msg, rails){
+  return fence(msg.length, rails)
     .map((i) => msg[i])
     .join("");
+}
 
-export const railfenceDecode = (msg, rails) => {
+export function decode(msg, rails){
   const fen = fence(msg.length, rails);
 
   const dec = Array(msg.length);
