@@ -44,7 +44,7 @@ button.on("click", function () {
         output = decrypt(input, Number(keyField.val()));
         break;
       case "root":
-        // TODO find decrypt for root
+        output = rot13(input, Number(keyField.val()));
         break;
     }
   }
